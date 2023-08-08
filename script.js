@@ -16,21 +16,25 @@ async function getQuestions(){
 
         let li = document.createElement("li");
 		li.textContent = question.question;
-
+        
         let ul = document.createElement("ul");
         
         question.incorrect_answers.forEach((answer) => {
             let ans = document.createElement("li");
             ans.textContent = answer;
             ul.appendChild(ans);
-        })
+        });
 
         const correct = document.createElement("li");
         correct.textContent = question.correct_answer;
         ul.appendChild(correct);
 
-        li.appendChild(ul);
+        //shuflle list items
+        for (var i = ul.children.length; i >= 0; i--) {
+            ul.appendChild(ul.children[Math.random() * i | 0]);
+        } 
 
+        li.appendChild(ul);
         questions.appendChild(li);
 
     });
