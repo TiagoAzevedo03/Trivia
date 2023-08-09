@@ -1,5 +1,10 @@
 let n = new URLSearchParams(window.location.search).get("number");
-let url = "https://opentdb.com/api.php?amount=" + n;
+let category = new URLSearchParams(window.location.search).get("category");
+let url = "https://opentdb.com/api.php?amount=" + n + "&category=" + category;
+
+const categories = {"9": "General Knowledge", "21": "Sports", "22": "Geography", "23": "History", "27": "Animals", "12": "Music", "15": "Video Games", "17": "Science", "19": "Maths"};
+const title = document.getElementById("title");
+title.textContent = "Trivia - " + categories[category]; 
 
 /*category "Science: Computers" 
 correct_answer: "Shellshock"
@@ -9,8 +14,8 @@ question: "What was the name of the security vulnerability found in Bash in 2014
 type: "multiple"*/
 
 const questions = document.getElementById("questions");
-let points = 0, id = 0;
-let correct = [];
+let points = 0, id = 0, correct = [];
+
 
 function calc() {
     for (let i = 0; i < id; i++) {
