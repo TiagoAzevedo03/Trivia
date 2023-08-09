@@ -1,4 +1,19 @@
-const url = "https://opentdb.com/api.php?amount=5"
+let n = 5;
+let url = "https://opentdb.com/api.php?amount=" + n;
+
+/*
+let form = document.getElementById("number");
+form.addEventListener("change", function(event){
+    n = event.target.value;
+    url = "https://opentdb.com/api.php?amount=" + n;
+    
+    // Refresh the page with the new URL parameter
+    window.location.href = url;
+});*/
+
+
+
+
 /*category "Science: Computers" 
 correct_answer: "Shellshock"
 difficulty: "hard"
@@ -11,10 +26,9 @@ let points = 0, id = 0;
 let correct = [];
 
 function calc() {
-    console.log("Inicio: " + points);
     for (let i = 0; i < id; i++) {
         let radio = document.querySelectorAll(`input[name="${i}"]:checked`);
-        if (correct[i] == radio[0].value){
+        if (radio.length > 0 && correct[i] == radio[0].value){
             document.getElementById(`a${i}`).style.backgroundColor = 'green';
             points++;
         }
@@ -22,7 +36,7 @@ function calc() {
             document.getElementById(`a${i}`).style.backgroundColor = 'red';
         }
     }
-    console.log("Fim: " + points);
+    document.getElementById("result").textContent = points + "/" + n;
 }
 
 async function shuffleArray(array) {
@@ -39,9 +53,8 @@ async function getQuestions(){
     data.results.forEach((question) => {
         let li = document.createElement("li");
 		li.textContent = question.question;
+        li.setAttribute("id", "a"+id);
 
-        let div = document.createElement("div");
-        div.setAttribute("id", "a"+id);
         let form = document.createElement("form");
         form.setAttribute("id", "form");
 
@@ -69,8 +82,7 @@ async function getQuestions(){
         });
 
         li.appendChild(form);
-        div.appendChild(li);
-        questions.appendChild(div);
+        questions.appendChild(li);
         id++;
         
     });
