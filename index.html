@@ -2,10 +2,7 @@
 <html>
     <head>
         <title> Trivia </title>
-        <script src = "script.js" defer></script>
     </head>
-
-
     <body>
         <h1>Trivia</h1>
         <form>
@@ -16,9 +13,15 @@
                 <option value="15">15</option>
                 <option value="20">20</option>
             </select>
-        </form>        
-        <ul id = "questions"></ul>
-        <button id="submit" onclick="calc()">Submit</button>
-        <h1 id = "result"></p>
+            <button id="next">Next</button>
+        </form>
+
+        <script>
+            document.getElementById("next").addEventListener("click", function(event) {
+                event.preventDefault();
+                var selectedValue = document.getElementById("number").value;
+                window.location.href = "trivia.html?number=" + selectedValue;
+            });
+        </script>
     </body>
 </html>

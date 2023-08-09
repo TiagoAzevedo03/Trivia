@@ -1,18 +1,5 @@
-let n = 5;
+let n = new URLSearchParams(window.location.search).get("number");
 let url = "https://opentdb.com/api.php?amount=" + n;
-
-/*
-let form = document.getElementById("number");
-form.addEventListener("change", function(event){
-    n = event.target.value;
-    url = "https://opentdb.com/api.php?amount=" + n;
-    
-    // Refresh the page with the new URL parameter
-    window.location.href = url;
-});*/
-
-
-
 
 /*category "Science: Computers" 
 correct_answer: "Shellshock"
