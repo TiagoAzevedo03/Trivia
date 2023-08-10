@@ -1,10 +1,44 @@
 li {
     padding: 15px;
     border: 1px black solid;
-    margin: 10px;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
     width: 30%;
+    border-radius: 10px;
+    background-color: white;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 
 ul {
     list-style-type: none;
+    margin-top: 10px;
+}
+
+html {
+    background-color: rgb(218, 212, 212);
+}
+
+button {
+    margin: 0 auto;
+    margin-top: 30px;
+    display: block;
+    border: none;
+    background-color: rgb(74, 74, 168);
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 15px 32px;
+    border: 3px solid black;
+    text-align: center;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(74, 74, 168);
 }
